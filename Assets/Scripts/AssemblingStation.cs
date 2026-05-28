@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+
 
 public class AssemblingStation : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class AssemblingStation : MonoBehaviour
     public float transferDelay = 10f;
     public string[] bikeStations;
 
-    public XRSocketInteractor[] sockets;
+    public UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor[] sockets;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class AssemblingStation : MonoBehaviour
     {
         if (onlyFullBike)
         {
-            foreach (XRSocketInteractor socket in sockets)
+            foreach (UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket in sockets)
             {
                 if (!socket.hasSelection)
                 {
@@ -59,12 +60,12 @@ public class AssemblingStation : MonoBehaviour
         GameObject fullBike = new GameObject();
         fullBike.name = "Bike";
 
-        foreach (XRSocketInteractor socket in sockets)
+        foreach (UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket in sockets)
         {
-            IXRSelectInteractable currentItem = socket.GetOldestInteractableSelected();
+            UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable currentItem = socket.GetOldestInteractableSelected();
             if (currentItem != null)
             {
-                Destroy(currentItem.transform.GetComponent<XRGrabInteractable>());
+                Destroy(currentItem.transform.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>());
                 Destroy(currentItem.transform.GetComponent<MeshCollider>());
                 Destroy(currentItem.transform.GetComponent<Rigidbody>());
                 currentItem.transform.parent = fullBike.transform;

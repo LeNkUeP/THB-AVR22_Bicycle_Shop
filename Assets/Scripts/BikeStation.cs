@@ -82,10 +82,10 @@ public class BikeStation : MonoBehaviour
                     attach.transform.parent = bike.transform;
                     attach.transform.localPosition = new Vector3(-3f, -0.35f, 5f);
                     attach.transform.localRotation = Quaternion.Euler(0,0,0);
-                    bike.AddComponent<XRGrabInteractable>().attachTransform = attach.transform;
-                    bike.GetComponent<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("FullBike");
+                    bike.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().attachTransform = attach.transform;
+                    bike.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("FullBike");
                     bike.layer = LayerMask.NameToLayer("FullBike");
-                    bike.GetComponent<XRGrabInteractable>().selectExited.AddListener(delegate { DetachBike(); });
+                    bike.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().selectExited.AddListener(delegate { DetachBike(); });
                 }
             }
         }
@@ -94,8 +94,8 @@ public class BikeStation : MonoBehaviour
     void DetachBike()
     {
         // grabinteractable tries to reparent, so disable and enable to prevent
-        bike.GetComponent<XRGrabInteractable>().enabled = false;
+        bike.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = false;
         bike.transform.parent = null;
-        bike.GetComponent<XRGrabInteractable>().enabled = true;
+        bike.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>().enabled = true;
     }
 }

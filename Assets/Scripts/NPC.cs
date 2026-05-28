@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+
 
 public class NPC : MonoBehaviour
 {
@@ -32,8 +33,8 @@ public class NPC : MonoBehaviour
     }
     public void GiveBike()
     {
-        XRSocketInteractor socket = GetComponent<XRSocketInteractor>();
-        IXRSelectInteractable bike = socket.GetOldestInteractableSelected();
+        UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor>();
+        UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable bike = socket.GetOldestInteractableSelected();
         Destroy(bike.transform.gameObject);
         currentDestination = beginning;
         GetComponentInChildren<Animator>().Play(walkingAnim);
