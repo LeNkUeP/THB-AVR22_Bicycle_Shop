@@ -2,6 +2,8 @@
 
 This is a project for the university module "Virtual and Augmented Reality". A bicycle shop should be designed with focus on assembling a bike piece by piece. For the final submission, the focus was laid on the term gamification. The shop features some new aspects which improve the gameplay part. Like for example a multiplayer prototype (web based ui for external manipulation of ingame content).
 
+A presentation of an early state of the game was uploaded to YouTube and can be found here: https://youtu.be/dx1mUm9Mfj8.
+
 ![](/StartPage/main2.png)
 
 ![](/StartPage/main.png)
